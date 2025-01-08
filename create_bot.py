@@ -14,7 +14,7 @@ from loguru import logger
 
 # pg_db = PostgresHandler(config('PG_LINK'))
 scheduler = AsyncIOScheduler(timezone='Europe/Moscow')
-# admins = [int(admin_id) for admin_id in config('ADMINS').split(',')]
+admins = [int(admin_id) for admin_id in config('ADMINS').split(',')]
 
 # Удаляем все существующие обработчики
 logger.remove()
@@ -48,7 +48,7 @@ logger.configure(extra={"ip": "", "user": ""})
 bot = Bot(token=config('TOKEN'), default=DefaultBotProperties(parse_mode=ParseMode.HTML))
 dp = Dispatcher(storage=MemoryStorage())
 
-__all__ = ["logger", "bot", "dp", "scheduler"]
+__all__ = ["logger", "bot", "dp", "scheduler", "admins"]
 
 if __name__ == '__main__':
     logger.info('Инфо сообщение')
