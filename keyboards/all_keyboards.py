@@ -11,6 +11,7 @@ def main_kb(user_telegram_id: int):
     :return:
     """
     kb_list = [
+        [KeyboardButton(text="Давай инлайн!")],
         [KeyboardButton(text="📖 О нас"), KeyboardButton(text="👤 Профиль")],
         [KeyboardButton(text="📝 Заполнить анкету"), KeyboardButton(text="📚 Каталог")]
     ]
