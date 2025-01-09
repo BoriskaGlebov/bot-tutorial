@@ -10,6 +10,7 @@ from decouple import config
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
 from loguru import logger
 
+# import logging
 # from db_handler.db_class import PostgresHandler
 
 # pg_db = PostgresHandler(config('PG_LINK'))
@@ -27,8 +28,11 @@ logger.add(
            "<level>{level:^8}</level> - "
            "<cyan>{name}</cyan>:<magenta>{line}</magenta> - "
            "<yellow>{function}</yellow> - "
-           "<white>{message}</white> <magenta>{extra[user]:->10}</magenta>",
+           "<white>{message}</white> "
+    # "<magenta>{extra[user]:->10}</magenta>"
+           "",
 )
+
 # Конфигурация логгера с дополнительными полями это название полей для примера
 logger.configure(extra={"ip": "", "user": ""})
 # logger.add(
@@ -43,6 +47,7 @@ logger.configure(extra={"ip": "", "user": ""})
 
 # Теперь вы можете использовать logger в других модулях
 # Явный экспорт для того что б mypy не ругался
+
 
 #
 bot = Bot(token=config('TOKEN'), default=DefaultBotProperties(parse_mode=ParseMode.HTML))
@@ -69,3 +74,4 @@ if __name__ == '__main__':
     logger.bind(user="Boris").debug('dssdfs')
     logger.bind(user="Boris").warning('dssdfs')
     logger.bind(user="Boris").critical('dssdfs')
+#
