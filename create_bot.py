@@ -67,11 +67,14 @@ questions = {
     9: {'qst': 'Что такое H2O?', 'answer': 'Вода'},
     10: {'qst': 'Какой океан самый большой?', 'answer': 'Тихий океан'},
 }
+all_media_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'all_media')
+
 
 if __name__ == '__main__':
     logger.info('Инфо сообщение')
-    logger.bind(ip='199.200.03.96', user="Boris").error('С биндов сообщения')
-    logger.bind(user="Boris").debug('dssdfs')
-    logger.bind(user="Boris").warning('dssdfs')
-    logger.bind(user="Boris").critical('dssdfs')
-#
+logger.bind(ip='199.200.03.96', user="Boris").error('С биндов сообщения')
+logger.bind(user="Boris").debug('dssdfs')
+logger.bind(user="Boris").warning('dssdfs')
+logger.bind(user="Boris").critical('dssdfs')
+print(all_media_dir)
+print(os.path.exists(all_media_dir))  #
